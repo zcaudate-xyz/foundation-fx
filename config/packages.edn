@@ -48,19 +48,7 @@
   :include [[rt.javafx :complete]]
   :bundle [{:path "resources" :include ["assets/rt.javafx"]}]}
   
- foundation/xtalk.lang
- {:description "xtalk language"
-  :include [[xt.lang     :complete]
-            [xt.module   :complete]]}
- 
- foundation/xtalk.db
- {:description "xtalk language"
-  :include [[xt.db     :complete]]}
-
- foundation/xtalk.runtime
- {:description "xtalk language"
-  :include [[xt.runtime     :complete]]}
-
- foundation/xtalk.system
- {:description "xtalk language"
-  :include [[xt.sys     :complete]]}}
+ foundation/rt.jocl
+ {:description "wrapper for org.jocl"
+  :include [[rt.jocl :complete]]
+  :dependencies [org.jocl/jocl]}}

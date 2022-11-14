@@ -1,7 +1,0 @@
-{:type       :maven
- :repository "statstrade"
- :manifest   [;; library
-              foundation/std.lib
-              foundation/net.http
-              foundation/net.resp
-              ]}
