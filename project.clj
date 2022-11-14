@@ -9,12 +9,23 @@
    "deploy"      ["exec" "-ep" "(use 'code.maven)  (deploy :all {:tag :all}) (System/exit 0)"]}
   :dependencies
   [[org.clojure/clojure "1.11.1"]
-   foundation/code.test           "4.0.1"]
-   foundation/code.manage         "4.0.1"]
-   foundation/code.java           "4.0.1"]
-   foundation/code.maven          "4.0.1"]
-   foundation/code.doc            "4.0.1"]
-   foundation/code.dev            "4.0.1"]
+   [foundation/code.test           "4.0.1"]
+   [foundation/code.manage         "4.0.1"]
+   [foundation/code.java           "4.0.1"]
+   [foundation/code.maven          "4.0.1"]
+   [foundation/code.doc            "4.0.1"]
+   [foundation/code.dev            "4.0.1"]
+
+   [foundation/js.core             "4.0.1"]
+   [foundation/js.lib.d3           "4.0.1"]
+   [foundation/js.react            "4.0.1"]
+   [foundation/rt.graal            "4.0.1"]
+   [foundation/std.image           "4.0.1"]
+   [foundation/std.log             "4.0.1"]
+   [foundation/std.lang            "4.0.1"]
+   [foundation/std.make            "4.0.1"]
+   [foundation/std.text            "4.0.1"]
+   [foundation/xtalk.lang          "4.0.1"]
 
    ;; fx.gui
    [eu.lestard/advanced-bindings "0.4.0"]
@@ -45,7 +56,7 @@
   :resource-paths    ["resources" "test-data" "test-code"]
   :java-source-paths ["src-java" "test-java"]
   :java-output-path  "target/classes"
-  :repl-options {:host "0.0.0.0" :port 51311}
+  #_#_:repl-options {:host "0.0.0.0" :port 51311}
   :jvm-opts
   ["-Xms2048m"
    "-Xmx2048m"
