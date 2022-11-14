@@ -19,6 +19,8 @@
    [foundation/js.core             "4.0.1"]
    [foundation/js.lib.d3           "4.0.1"]
    [foundation/js.react            "4.0.1"]
+   [foundation/lib.docker          "4.0.1"]
+   [foundation/net.http            "4.0.1"]
    [foundation/rt.graal            "4.0.1"]
    [foundation/std.image           "4.0.1"]
    [foundation/std.log             "4.0.1"]
