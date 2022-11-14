@@ -1,0 +1,396 @@
+{foundation/code.doc
+ {:description "generate documentation from code"
+  :include [[code.doc :complete]]
+  :bundle [{:path "resources" :include ["assets/code.doc"]}]
+  :dependencies [markdown-clj/markdown-clj]}
+ 
+ foundation/code.framework
+ {:description "source and test management"
+  :include [[code.framework :complete]]}
+ 
+ foundation/code.java
+ {:description "source and test management"
+  :include [[code.java :complete]]}
+ 
+ foundation/code.link
+ {:description "code packaging and distribution"
+  :include [[code.link :complete]]}
+ 
+ foundation/code.manage
+ {:description "source code utils and workflow"
+  :include [[code.manage :complete]]
+  :bundle [{:path "resources" :include ["assets/code"]}]}
+ 
+ foundation/code.project
+ {:description "working with projects"
+  :include [[code.project :complete]]}
+  
+ foundation/code.query
+ {:description "query for code" 
+  :include [[code.query :complete]]}
+ 
+ foundation/code.test
+ {:description "easy test framework"
+  :include [[code.test :complete]]} 
+  
+ foundation/fx.data
+ {:description "blocks for platform building"
+  :include [[fx.data :complete]]}
+  
+ foundation/fx.gnuplot
+ {:description "blocks for platform building"
+  :include [[fx.gnuplot :complete]]}
+  
+ foundation/fx.graphstream
+ {:description "wrapper for org.graphstream"
+  :include [[fx.graphstream :complete]]
+  :dependencies [org.graphstream/gs-ui]}
+  
+ foundation/fx.graphviz
+ {:description "blocks for platform building"
+  :include [[fx.graphviz :complete]]}
+  
+ foundation/fx.gui
+ {:description "javafx no dom" 
+  :include [[fx.gui :complete]]}
+  
+ foundation/fx.vega
+ {:description "blocks for platform building"
+  :include [[fx.vega :complete]]}
+ 
+ foundation/jvm
+ {:description "take control of your dependencies"
+  :include [[std.protocol.classloader :complete] 
+            [jvm :complete]]}
+ 
+ foundation/kmi.exchange
+ {:description "order matcher for trading"
+  :include [[kmi.exchange :complete]]}
+  
+ foundation/kmi.mq
+ {:description "exchange abstraction for platform"
+  :include [[kmi.mq :complete]]}
+  
+ foundation/lib.aether
+ {:description "wrapper for org.eclipse.aether"
+  :include [[lib.aether :complete]]
+  :dependencies
+  [org.eclipse.aether/aether-api
+   org.eclipse.aether/aether-spi
+   org.eclipse.aether/aether-util
+   org.eclipse.aether/aether-impl
+   org.eclipse.aether/aether-connector-basic
+   org.eclipse.aether/aether-transport-wagon
+   org.eclipse.aether/aether-transport-http
+   org.eclipse.aether/aether-transport-file
+   org.eclipse.aether/aether-transport-classpath
+   org.apache.maven/maven-aether-provider]}
+   
+ ;; foundation/lib.antlr
+ ;; {:description "wrapper for antlr"
+ ;;  :include [[lib.antlr :complete]]
+ ;;  :dependencies [org.antlr/antlr4 
+ ;;                 org.antlr/antlr4-runtime]}
+  
+ foundation/lib.css
+ {:description "read and write css using clojure"
+  :include [[lib.css :complete]]
+  :dependencies [garden/garden 
+                 net.sourceforge.cssparser/cssparser]}
+  
+ foundation/lib.docker
+ {:description "wrapper for hasura"
+  :include [[lib.docker :complete]]}
+  
+ foundation/lib.image
+ {:description "tools for image manipulation"
+  :include [[lib.image :complete]]
+  :bundle
+  [{:path "resources" :include ["assets/image"]}
+   {:path "target/classes" :include ["hara/lib/image"]}]}
+   
+ ;; foundation/lib.janino
+ ;; {:description "wrapper for janino compiler"
+ ;;  :include [[lib.janino :complete]]
+ ;;  :dependencies [org.codehaus.janino/janino]}
+   
+ ;; foundation/lib.jgit
+ ;; {:description "wrapper for org.eclipse.jgit"
+ ;;  :include [[lib.jgit :complete]]
+ ;;  :dependencies [org.eclipse.jgit/org.eclipse.jgit]}
+  
+ foundation/lib.hasura
+ {:description "wrapper for hasura"
+  :include [[lib.hasura :complete]]
+  :dependencies [district0x/graphql-query]}
+   
+ foundation/lib.jodatime
+ {:description "wrapper for joda-time"
+  :include [[lib.jodatime :complete]]
+  :dependencies [joda-time/joda-time]}
+  
+ foundation/lib.lucene
+ {:description "wrapper for lucene"
+  :dependencies
+  [org.apache.lucene/lucene-core
+   org.apache.lucene/lucene-queryparser
+   org.apache.lucene/lucene-analyzers-common
+   org.apache.lucene/lucene-suggest]}
+   
+ ;; foundation/lib.mail
+ ;; {:description "mail abstraction for platform"
+ ;;  :include [[lib.mail :complete]]
+ ;;  :dependencies [com.sun.mail/javax.mail javax.mail/javax.mail-api]}
+  
+ foundation/lib.openpgp
+ {:description "openpgp that makes sense"
+  :include [[lib.openpgp :complete]]
+  :dependencies
+  [org.bouncycastle/bcprov-jdk15on org.bouncycastle/bcpg-jdk15on]}
+  
+ foundation/lib.oshi
+ {:description "wrapper for com.github.oshi"
+  :include [[lib.oshi :complete]]
+  :dependencies [com.github.oshi/oshi-core]}
+  
+ foundation/lib.redis
+ {:description "wrapper for redis" 
+  :include [[lib.redis :complete]]}
+  
+ foundation/math.infix
+ {:description "math and statistics" 
+  :include [[math.infix :complete]]}
+ 
+ foundation/math.parse
+ {:description "math and statistics"
+  :include [[math.parse :complete]]
+  :dependencies [org.scijava/parsington]}
+  
+ foundation/math.stats
+ {:description "math and statistics"
+  :include [[math.stats :complete]]
+  :dependencies [net.sourceforge.jdistlib/jdistlib]}
+  
+ foundation/math.variant
+ {:description "methods for variant logic"
+  :include [[math.variant :complete]]}
+  
+ foundation/net.http
+ {:description "network and http programming"
+  :include [[net.http :complete]]}
+  
+ foundation/net.resp
+ {:description "rpc based on the redis protocol"
+  :include [[net.resp :complete]]
+  :bundle
+  [{:path "target/classes" :include ["hara/net/resp"]}]}
+  
+ foundation/net.undertow
+ {:description "wrapper for scribe"
+  :include [[net.undertow :complete]]
+  :dependencies [io.undertow/undertow-core]}
+  
+ foundation/org.maven
+ {:description "code packaging and distribution"
+  :include [[org.maven :complete]]}
+  
+ foundation/platform.bank
+ {:description "bank vendor abstractions"
+  :include [[platform.bank :complete]]}
+  
+ foundation/platform.bench
+ {:description "benchmarking tool"
+  :include [[platform.bench :complete]]}
+  
+ foundation/platform.cache
+ {:description "cache abstraction for platform"
+  :include [[platform.cache :complete]]}
+  
+ foundation/platform.discovery
+ {:description "exchange abstraction for platform"
+  :include [[platform.discovery :complete]]}
+  
+ foundation/platform.eft
+ {:description "eft vendor abstractions"
+  :include [[platform.eft :complete]]}
+  
+ foundation/platform.graph
+ {:description "graph abstraction for platform"
+  :include [[platform.graph :complete]]}
+  
+ foundation/platform.keystore
+ {:description "keystore abstraction for platform"
+  :include [[platform.keystore :complete]]}
+  
+ foundation/platform.search
+ {:description "generic datatype for expressing results"
+  :include [[platform.search :complete]]}
+  
+ foundation/platform.storage
+ {:description "storage abstraction for platform"
+  :include [[platform.storage :complete]]}
+  
+ foundation/platform.system
+ {:description "composition of components"
+  :include [[platform.system :complete]]}
+  
+ foundation/platform.table
+ {:description "table abstraction for platform"
+  :include [[platform.table :complete]]}
+
+ foundation/rt.graal
+ {:description "wrapper for graal contexts"
+  :include [[rt.graal :complete]]}
+  
+ foundation/rt.jep
+ {:description "wrapper for jep python interpreter"
+  :include [[rt.jep :complete]]
+  :dependencies [black.ninia/jep]}
+  
+ ;; foundation/rt.jocl
+ ;; {:description "wrapper for org.jocl"
+ ;;  :include [[rt.jocl :complete]]
+ ;;  :dependencies [org.jocl/jocl]}
+  
+ foundation/rt.namespace
+ {:description "take control of your namespace"
+  :include [[rt.namespace :complete]]}
+  
+ foundation/rt.pretty
+ {:description "pretty printer in full color"
+  :include [[rt.pretty :complete]]}
+  
+ foundation/rt.reflect
+ {:description "pretty printer in full color"
+  :include [[rt.reflect :complete]]}
+  
+ foundation/rt.shell
+ {:description "shell runtimes for lang"
+  :include [[rt.shell :complete]]}
+  
+ foundation/rt.tool
+ {:description "improved developer workflow"
+  :include [[rt.tool :complete]]}
+  
+ foundation/script.lua
+ {:description "scripts for embeded runtimes"
+  :include [[script.lua :complete]]}
+  
+ foundation/script.toml
+ {:description "wrapper for toml4j"
+  :include [[script.toml :complete]]
+  :dependencies [org.yaml/snakeyaml]}
+  
+ foundation/script.yaml
+ {:description "wrapper for scribe"
+  :include [[script.yaml :complete]]
+  :dependencies [org.yaml/snakeyaml]
+  :bundle [{:path "target/classes" :include ["hara/lib/snakeyaml"]}]}
+  
+ foundation/std.block
+ {:description "blocks for code unit representation"
+  :include [[std.protocol.block :complete] [std.block :complete]]
+  :dependencies [org.clojure/tools.reader]}
+  
+ foundation/std.config
+ {:description "secure configuration"
+  :include [[std.config :complete]]
+  :optional
+  [std.config.ext.gpg
+   std.config.ext.json
+   std.config.ext.toml
+   std.config.ext.yaml]
+  :dependencies [borkdude/edamame]}
+  
+ foundation/std.dispatch
+ {:description "collection of dispatchers"
+  :include [[std.dispatch :complete]]}
+  
+  
+ 
+ foundation/std.html
+ {:description "wrapper for org.jsoup"
+  :include [[std.html :complete]]
+  :dependencies [org.jsoup/jsoup]}
+  
+ foundation/std.json
+ {:description "wrapper for com.fasterxml.jackson"
+  :include [[std.json :complete]]
+  
+  :dependencies
+  [com.fasterxml.jackson.core/jackson-databind
+   com.fasterxml.jackson.datatype/jackson-datatype-jsr310]
+  :bundle [{:path "target/classes" :include ["hara/lib/json"]}]}
+ 
+ foundation/std.lang
+ {:description "working with other languages"
+  :include [[std.protocol.embed :complete]
+            [std.lang :complete]]}
+  
+ foundation/std.lib
+ {:description "simple string methods for searching"
+  :bundle [{:path "target/classes" 
+            :include ["hara/lib/bin"
+                      "hara/lib/concurrent"
+                      "hara/lib/foundation"
+                      "hara/lib/mustache"
+                      "hara/lib/security"
+                      "hara/lib/stream"]}]
+  :dependencies [metosin/malli 
+                 org.apache.commons/commons-math3
+                 com.googlecode.java-diff-utils/diffutils]
+  :include [[std.protocol.apply :complete]
+            [std.protocol.archive :complete]
+            [std.protocol.binary :complete] 
+            [std.protocol.component :complete]
+            [std.protocol.context :complete]
+            [std.protocol.contract :complete]
+            [std.protocol.deps :complete] 
+            [std.protocol.dispatch :complete]
+            [std.protocol.invoke :complete]
+            [std.protocol.log :complete]
+            [std.protocol.match :complete]  
+            [std.protocol.object :complete]
+            [std.protocol.request :complete] 
+            [std.protocol.return :complete]
+            [std.protocol.state :complete]
+            [std.protocol.string :complete]
+            [std.protocol.stream :complete]
+            [std.protocol.time :complete] 
+            [std.protocol.track :complete]
+            [std.protocol.watch :complete]
+            [std.protocol.wire :complete]
+            
+            [std.bin :complete]
+            [std.concurrent :complete]
+            [std.context :complete] 
+            [std.contract :complete]
+            [std.diff :complete]
+            [std.encode :complete]
+            [std.lib :complete]
+            [std.log :complete]
+            [std.fs :complete]
+            [std.generate :complete]
+            [std.match :complete]
+            [std.math :complete]
+            [std.mustache :complete]
+            [std.object :complete]
+            [std.print :complete]
+            [std.result :complete]
+            [std.security :complete]
+            [std.stream :complete]
+            [std.string :complete]
+            [std.task :complete]
+            [std.time :complete]
+            [std.version :complete]
+            [std.watch :complete]
+            [std.text :complete]
+            [std.zip :complete]]}
+  
+ foundation/std.scheduler
+ {:description "scheduled runner for timebound execution"
+  :include [[std.scheduler :complete]]}
+  
+ foundation/std.timeseries
+ {:description "double ended queue implementation"
+  :include [[std.timeseries :complete]]}}

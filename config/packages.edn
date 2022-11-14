@@ -1,0 +1,66 @@
+{foundation/fx.gnuplot
+ {:description "blocks for platform building"
+  :include [[fx.gnuplot :complete]]}
+  
+ foundation/fx.graphviz
+ {:description "blocks for platform building"
+  :include [[fx.graphviz :complete]]}
+  
+ foundation/fx.gui
+ {:description "javafx no dom" 
+  :include [[fx.gui :complete]]
+  :dependencies
+  [eu.lestard/advanced-bindings
+   org.fxmisc.easybind/easybind
+   org.openjfx/javafx-base
+   org.openjfx/javafx-controls
+   org.openjfx/javafx-web
+   org.openjfx/javafx-graphics
+   org.openjfx/javafx-media
+   org.openjfx/javafx-fxml]}
+  
+ foundation/fx.d3
+ {:description "blocks for platform building"
+  :include [[fx.d3 :complete]]
+  :bundle [{:path "resources" :include ["assets/fx.d3"]}]}
+  
+ foundation/fx.prettier
+ {:description "blocks for platform building"
+  :include [[fx.prettier :complete]]
+  :bundle [{:path "resources" :include ["assets/fx.prettier"]}]}
+  
+ foundation/fx.vega
+ {:description "blocks for platform building"
+  :include [[fx.vega :complete]]
+  :bundle [{:path "resources" :include ["assets/fx.vega"]}]}
+
+ foundation/rt.browser
+ {:description "wrapper for chrome-devtools" 
+  :include [[rt.browser :complete]]}
+  
+ foundation/rt.glsl
+ {:dertion "env for glsl"
+  :include [[rt.glsl :complete]]
+  :bundle [{:path "resources" :include ["assets/rt.glsl"]}]}
+
+ foundation/rt.javafx
+ {:description "webview runtime"
+  :include [[rt.javafx :complete]]
+  :bundle [{:path "resources" :include ["assets/rt.javafx"]}]}
+  
+ foundation/xtalk.lang
+ {:description "xtalk language"
+  :include [[xt.lang     :complete]
+            [xt.module   :complete]]}
+ 
+ foundation/xtalk.db
+ {:description "xtalk language"
+  :include [[xt.db     :complete]]}
+
+ foundation/xtalk.runtime
+ {:description "xtalk language"
+  :include [[xt.runtime     :complete]]}
+
+ foundation/xtalk.system
+ {:description "xtalk language"
+  :include [[xt.sys     :complete]]}}
