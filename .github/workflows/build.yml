@@ -1,0 +1,15 @@
+name: Build
+
+on: push
+
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/zcaudate/foundation-base:main
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Running Tests
+        run: lein test
