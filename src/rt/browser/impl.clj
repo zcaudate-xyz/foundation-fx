@@ -3,14 +3,13 @@
             [std.lang.base.pointer :as ptr]
             [std.lang.base.impl :as impl]
             [std.lang.base.runtime :as default]
-            [std.lang.base.runtime-wrap :as wrap]
             [std.lang.interface.type-shared :as shared]
             [std.lib.encode :as encode]
             [std.lib :as h :refer [defimpl]]
             [std.json :as json]
             [std.string :as str]
             [net.http :as http]
-            [rt.docker :as docker]
+            [lib.docker :as docker]
             [rt.basic.type-bench :as bench]
             [rt.basic.impl.process-js :as js]
             [rt.browser.connection :as conn]
@@ -83,9 +82,9 @@
 
 (def ^{:arglists '([pg])}
   stop-browser
-  (wrap/wrap-stop stop-browser-raw
-                  [{:key :container
-                    :teardown  docker/stop-runtime}]))
+  (h/wrap-stop stop-browser-raw
+               [{:key :container
+                 :teardown  docker/stop-runtime}]))
 
 (def kill-browser stop-browser)
 
