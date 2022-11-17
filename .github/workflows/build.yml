@@ -1,15 +1,17 @@
-name: Build
+name: Trigger CI
 
-on: push
+on: [push, repository_dispatch, workflow_dispatch]
 
 jobs:
-  run-test:
+
+  trigger-ci:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/zcaudate/foundation-base:main
-    
+      
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Running Tests
-        run: lein test
+      - name: Notify CI
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          repository: zcaudate/foundation-ci
+          event-type: fx-changed
+          client-payload: '{"repo": "${{ repository.id }}", "ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "comment": "${{ payload.comment }}"}'
