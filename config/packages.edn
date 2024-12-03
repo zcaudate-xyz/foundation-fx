@@ -1,12 +1,12 @@
-{foundation/fx.gnuplot
+{xyz.zcaudate/fx.gnuplot
  {:description "blocks for platform building"
   :include [[fx.gnuplot :complete]]}
   
- foundation/fx.graphviz
+ xyz.zcaudate/fx.graphviz
  {:description "blocks for platform building"
   :include [[fx.graphviz :complete]]}
   
- foundation/fx.gui
+ xyz.zcaudate/fx.gui
  {:description "javafx no dom" 
   :include [[fx.gui :complete]]
   :dependencies
@@ -19,36 +19,36 @@
    org.openjfx/javafx-media
    org.openjfx/javafx-fxml]}
   
- foundation/fx.d3
+ xyz.zcaudate/fx.d3
  {:description "blocks for platform building"
   :include [[fx.d3 :complete]]
   :bundle [{:path "resources" :include ["assets/fx.d3"]}]}
   
- foundation/fx.prettier
+ xyz.zcaudate/fx.prettier
  {:description "blocks for platform building"
   :include [[fx.prettier :complete]]
   :bundle [{:path "resources" :include ["assets/fx.prettier"]}]}
   
- foundation/fx.vega
+ xyz.zcaudate/fx.vega
  {:description "blocks for platform building"
   :include [[fx.vega :complete]]
   :bundle [{:path "resources" :include ["assets/fx.vega"]}]}
 
- foundation/rt.browser
+ xyz.zcaudate/rt.browser
  {:description "wrapper for chrome-devtools" 
   :include [[rt.browser :complete]]}
   
- foundation/rt.glsl
+ xyz.zcaudate/rt.glsl
  {:dertion "env for glsl"
   :include [[rt.glsl :complete]]
   :bundle [{:path "resources" :include ["assets/rt.glsl"]}]}
 
- foundation/rt.javafx
+ xyz.zcaudate/rt.javafx
  {:description "webview runtime"
   :include [[rt.javafx :complete]]
   :bundle [{:path "resources" :include ["assets/rt.javafx"]}]}
   
- foundation/rt.jocl
+ xyz.zcaudate/rt.jocl
  {:description "wrapper for org.jocl"
   :include [[rt.jocl :complete]]
   :dependencies [org.jocl/jocl]}}

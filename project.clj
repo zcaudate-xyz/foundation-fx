@@ -1,4 +1,4 @@
-(defproject zcaudate/foundation-fx "4.0.1"
+(defproject xyz.zcaudate/foundation-fx "4.0.3"
   :description "gui libraries for foundation"
   :url "https://www.gitlab.com/zcaudate/foundation-fx"
   :aliases
@@ -7,28 +7,29 @@
    "publish"     ["exec" "-ep" "(use 'code.doc)     (deploy-template :all) (publish :all)"]
    "incomplete"  ["exec" "-ep" "(use 'code.manage)  (incomplete :all) (System/exit 0)"]
    "install"     ["exec" "-ep" "(use 'code.maven)  (install :all {:tag :all}) (System/exit 0)"]
-   "deploy"      ["exec" "-ep" "(use 'code.maven)  (deploy :all {:tag :all}) (System/exit 0)"]}
+   "deploy"      ["exec" "-ep" "(use 'code.maven)  (deploy :all {:tag :all}) (System/exit 0)"]
+   "deploy-lein" ["exec" "-ep" "(use 'code.maven)   (deploy-lein :all {:tag :all}) (System/exit 0)"]}
   :dependencies
   [[org.clojure/clojure "1.11.1"]
-   [foundation/code.test           "4.0.1"]
-   [foundation/code.manage         "4.0.1"]
-   [foundation/code.java           "4.0.1"]
-   [foundation/code.maven          "4.0.1"]
-   [foundation/code.doc            "4.0.1"]
-   [foundation/code.dev            "4.0.1"]
+   [xyz.zcaudate/code.test           "4.0.3"]
+   [xyz.zcaudate/code.manage         "4.0.3"]
+   [xyz.zcaudate/code.java           "4.0.3"]
+   [xyz.zcaudate/code.maven          "4.0.3"]
+   [xyz.zcaudate/code.doc            "4.0.3"]
+   [xyz.zcaudate/code.dev            "4.0.3"]
 
-   [foundation/js.core             "4.0.1"]
-   [foundation/js.lib.d3           "4.0.1"]
-   [foundation/js.react            "4.0.1"]
-   [foundation/lib.docker          "4.0.1"]
-   [foundation/net.http            "4.0.1"]
-   [foundation/rt.graal            "4.0.1"]
-   [foundation/std.image           "4.0.1"]
-   [foundation/std.log             "4.0.1"]
-   [foundation/std.lang            "4.0.1"]
-   [foundation/std.make            "4.0.1"]
-   [foundation/std.text            "4.0.1"]
-   [foundation/xtalk.lang          "4.0.1"]
+   [xyz.zcaudate/js.core             "4.0.3"]
+   [xyz.zcaudate/js.lib.d3           "4.0.3"]
+   [xyz.zcaudate/js.react            "4.0.3"]
+   [xyz.zcaudate/lib.docker          "4.0.3"]
+   [xyz.zcaudate/net.http            "4.0.3"]
+   [xyz.zcaudate/rt.graal            "4.0.3"]
+   [xyz.zcaudate/std.image           "4.0.3"]
+   [xyz.zcaudate/std.log             "4.0.3"]
+   [xyz.zcaudate/std.lang            "4.0.3"]
+   [xyz.zcaudate/std.make            "4.0.3"]
+   [xyz.zcaudate/std.text            "4.0.3"]
+   [xyz.zcaudate/xtalk.lang          "4.0.3"]
 
    ;; fx.gui
    [eu.lestard/advanced-bindings "0.4.0"]
