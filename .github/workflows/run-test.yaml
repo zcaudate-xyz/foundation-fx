@@ -1,12 +1,38 @@
-name: Run Fx Tests
+name: Run Code
 
 on: [push, repository_dispatch, workflow_dispatch]
-
 jobs:
   
-  run-fx-test:
+  run-incomplete:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    
+    steps:
+      - name: Checkout base repository
+        uses: actions/checkout@v3
+        with:
+          repository: zcaudate/foundation-base
+          path: foundation-base
+          token: ${{ secrets.GH_TOKEN }}
+        
+      - name: Checkout fx repository
+        uses: actions/checkout@v3
+        with:
+          repository: zcaudate/foundation-fx
+          path: foundation-fx
+          token: ${{ secrets.GH_TOKEN }} 
+          
+      - name: List fx incomplete
+        run: > 
+          docker run --network host 
+          -v /var/run/docker.sock:/var/run/docker.sock 
+          -v $(pwd):$(pwd)
+          -w $(pwd) ghcr.io/zcaudate/infra-foundation-clean:main 
+          bash -c 'cd foundation-base && lein install && cd ../foundation-fx && lein incomplete'
+          
+  run-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
     
     steps:
       - name: Checkout base repository
@@ -29,4 +55,3 @@ jobs:
           -v $(pwd):$(pwd)
           -w $(pwd) ghcr.io/zcaudate-xyz/infra-foundation-ci:main 
           bash -c 'cd foundation-base && lein install && cd ../foundation-fx && lein test'
-          
