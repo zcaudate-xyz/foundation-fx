@@ -1,6 +1,8 @@
 (defproject xyz.zcaudate/foundation-fx "4.0.4"
   :description "gui libraries for foundation"
   :url "https://www.gitlab.com/zcaudate/foundation-fx"
+  :license  {:name "MIT License"
+             :url  "http://opensource.org/licenses/MIT"}
   :aliases
   {"test"  ["exec" "-ep" "(use 'code.test) (def res (run :all)) (System/exit (+ (:failed res) (:thrown res)))"]
    "test-unit"   ["run" "-m" "code.test" "exit"]

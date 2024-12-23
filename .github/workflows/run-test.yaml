@@ -1,0 +1,32 @@
+name: Run Fx Tests
+
+on: [push, repository_dispatch, workflow_dispatch]
+
+jobs:
+  
+  run-fx-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout base repository
+        uses: actions/checkout@v3
+        with:
+          repository: zcaudate-xyz/foundation-base
+          path: foundation-base
+          token: ${{ secrets.GH_TOKEN }}
+          
+      - name: Checkout fx repository
+        uses: actions/checkout@v3
+        with:
+          repository: zcaudate-xyz/foundation-fx
+          token: ${{ secrets.GH_TOKEN }}
+          
+      - name: Running fx tests
+        run: >
+          docker run --network host 
+          -v /var/run/docker.sock:/var/run/docker.sock 
+          -v $(pwd):$(pwd)
+          -w $(pwd) ghcr.io/zcaudate-xyz/infra-foundation-ci:main 
+          bash -c 'cd foundation-base && lein install && cd ../foundation-fx && lein test'
+          
