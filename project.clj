@@ -1,4 +1,4 @@
-(defproject xyz.zcaudate/foundation-fx "4.0.4"
+(defproject xyz.zcaudate/foundation-fx "4.0.5"
   :description "gui libraries for foundation"
   :url "https://www.gitlab.com/zcaudate/foundation-fx"
   :license  {:name "MIT License"
@@ -13,25 +13,25 @@
    "deploy-lein" ["exec" "-ep" "(use 'code.maven)   (deploy-lein :all {:tag :all}) (System/exit 0)"]}
   :dependencies
   [[org.clojure/clojure "1.11.1"]
-   [xyz.zcaudate/code.test           "4.0.4"]
-   [xyz.zcaudate/code.manage         "4.0.4"]
-   [xyz.zcaudate/code.java           "4.0.4"]
-   [xyz.zcaudate/code.maven          "4.0.4"]
-   [xyz.zcaudate/code.doc            "4.0.4"]
-   [xyz.zcaudate/code.dev            "4.0.4"]
+   [xyz.zcaudate/code.test           "4.0.5"]
+   [xyz.zcaudate/code.manage         "4.0.5"]
+   [xyz.zcaudate/code.java           "4.0.5"]
+   [xyz.zcaudate/code.maven          "4.0.5"]
+   [xyz.zcaudate/code.doc            "4.0.5"]
+   [xyz.zcaudate/code.dev            "4.0.5"]
 
-   [xyz.zcaudate/js.core             "4.0.4"]
-   [xyz.zcaudate/js.lib.d3           "4.0.4"]
-   [xyz.zcaudate/js.react            "4.0.4"]
-   [xyz.zcaudate/lib.docker          "4.0.4"]
-   [xyz.zcaudate/net.http            "4.0.4"]
-   [xyz.zcaudate/rt.graal            "4.0.4"]
-   [xyz.zcaudate/std.image           "4.0.4"]
-   [xyz.zcaudate/std.log             "4.0.4"]
-   [xyz.zcaudate/std.lang            "4.0.4"]
-   [xyz.zcaudate/std.make            "4.0.4"]
-   [xyz.zcaudate/std.text            "4.0.4"]
-   [xyz.zcaudate/xtalk.lang          "4.0.4"]
+   [xyz.zcaudate/js.core             "4.0.5"]
+   [xyz.zcaudate/js.lib.d3           "4.0.5"]
+   [xyz.zcaudate/js.react            "4.0.5"]
+   [xyz.zcaudate/lib.docker          "4.0.5"]
+   [xyz.zcaudate/net.http            "4.0.5"]
+   [xyz.zcaudate/rt.graal            "4.0.5"]
+   [xyz.zcaudate/std.image           "4.0.5"]
+   [xyz.zcaudate/std.log             "4.0.5"]
+   [xyz.zcaudate/std.lang            "4.0.5"]
+   [xyz.zcaudate/std.make            "4.0.5"]
+   [xyz.zcaudate/std.text            "4.0.5"]
+   [xyz.zcaudate/xtalk.lang          "4.0.5"]
 
    
    
