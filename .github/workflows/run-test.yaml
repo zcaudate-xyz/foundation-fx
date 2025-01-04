@@ -24,8 +24,7 @@ jobs:
           
       - name: List fx incomplete
         run: > 
-          docker run --network host 
-          -v /var/run/docker.sock:/var/run/docker.sock 
+          docker run
           -v $(pwd):$(pwd)
           -w $(pwd) ghcr.io/zcaudate-xyz/infra-foundation-clean:ci 
           bash -c 'cd foundation-base && lein install && cd ../foundation-fx && lein incomplete'
