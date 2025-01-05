@@ -48,10 +48,18 @@ jobs:
           path: foundation-fx
           token: ${{ secrets.GH_TOKEN }}
           
+      - name: Log into registry ${{ env.REGISTRY }}
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.GH_USER }}
+          password: ${{ secrets.GH_TOKEN }}
+          
       - name: Running fx tests
         run: >
           docker run --network host 
           -v /var/run/docker.sock:/var/run/docker.sock 
           -v $(pwd):$(pwd)
-          -w $(pwd) ghcr.io/zcaudate-xyz/infra-foundation-dev:ci 
+          -w $(pwd) ghcr.io/zcaudate-xyz/infra-foundation-dev:ci
           bash -c 'cd foundation-base && lein install && cd ../foundation-fx && lein test'
