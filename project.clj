@@ -58,10 +58,10 @@
    [org.openjfx/javafx-fxml "17" :classifier ~javafx-classifier]
    
    ;; rt.graal
-   [org.graalvm.sdk/graal-sdk "24.1.1"]
-   [org.graalvm.truffle/truffle-api "24.1.1"]
-   [org.graalvm.js/js "24.1.1"]
-   [org.graalvm.js/js-scriptengine "24.1.1"]
+   [org.graalvm.sdk/graal-sdk "23.0.6"]
+   [org.graalvm.truffle/truffle-api "23.0.6"]
+   [org.graalvm.js/js "23.0.6"]
+   [org.graalvm.js/js-scriptengine "23.0.6"]
    [commons-io/commons-io "2.15.1"]
    
    ;; rt.jocl
