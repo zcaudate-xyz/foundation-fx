@@ -46,8 +46,6 @@
    [xyz.zcaudate/std.text            "4.0.5"]
    [xyz.zcaudate/xtalk.lang          "4.0.5"]
 
-   
-   
    ;; fx.gui
    [eu.lestard/advanced-bindings "0.4.0"]
    [org.fxmisc.easybind/easybind "1.0.3"]
@@ -58,12 +56,12 @@
    [org.openjfx/javafx-web "17" :classifier ~javafx-classifier]
    [org.openjfx/javafx-media "17" :classifier ~javafx-classifier]
    [org.openjfx/javafx-fxml "17" :classifier ~javafx-classifier]
-
+   
    ;; rt.graal
-   [org.graalvm.sdk/graal-sdk "21.2.0"]
-   [org.graalvm.truffle/truffle-api "21.2.0"]
-   [org.graalvm.js/js "21.2.0"]
-   [org.graalvm.js/js-scriptengine "21.2.0"]
+   [org.graalvm.sdk/graal-sdk "24.1.1"]
+   [org.graalvm.truffle/truffle-api "24.1.1"]
+   [org.graalvm.js/js "24.1.1"]
+   [org.graalvm.js/js-scriptengine "24.1.1"]
    [commons-io/commons-io "2.15.1"]
    
    ;; rt.jocl
