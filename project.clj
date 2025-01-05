@@ -1,3 +1,16 @@
+(require '[leiningen.core.eval :as eval])
+
+(def javafx-classifier
+  (let [os-name (System/getProperty "os.name")
+        arch    (System/getProperty "os.arch")]
+    (cond
+      (and (.contains os-name "Linux") (.equals arch "aarch64")) "linux-aarch64"
+      (and (.contains os-name "Linux") (.equals arch "amd64"))   "linux"
+      (and (.contains os-name "Mac"))                           "mac"
+      (and (.contains os-name "Windows"))                       "win"
+      :else (throw (RuntimeException.
+                    (str "Unsupported OS/architecture: " os-name " / " arch))))))
+
 (defproject xyz.zcaudate/foundation-fx "4.0.5"
   :description "gui libraries for foundation"
   :url "https://www.gitlab.com/zcaudate/foundation-fx"
@@ -38,13 +51,13 @@
    ;; fx.gui
    [eu.lestard/advanced-bindings "0.4.0"]
    [org.fxmisc.easybind/easybind "1.0.3"]
-   [org.openjfx/javafx-controls "16"]
-   [org.openjfx/javafx-swing "16"]
-   [org.openjfx/javafx-base "16"]
-   [org.openjfx/javafx-graphics "16"]
-   [org.openjfx/javafx-web "16"]
-   [org.openjfx/javafx-media "16"]
-   [org.openjfx/javafx-fxml "16"]
+   [org.openjfx/javafx-controls "17" :classifier ~javafx-classifier]
+   [org.openjfx/javafx-swing "17" :classifier ~javafx-classifier]
+   [org.openjfx/javafx-base "17" :classifier ~javafx-classifier]
+   [org.openjfx/javafx-graphics "17" :classifier ~javafx-classifier]
+   [org.openjfx/javafx-web "17" :classifier ~javafx-classifier]
+   [org.openjfx/javafx-media "17" :classifier ~javafx-classifier]
+   [org.openjfx/javafx-fxml "17" :classifier ~javafx-classifier]
 
    ;; rt.graal
    [org.graalvm.sdk/graal-sdk "21.2.0"]
@@ -64,14 +77,15 @@
   :profiles {:dev {:plugins [[lein-ancient "0.6.15"]
                              [lein-exec "0.3.7"]
                              [lein-cljfmt "0.7.0"]
-                             [cider/cider-nrepl "0.25.11"]]}
+                             [cider/cider-nrepl "0.45.0"]]}
              :repl {:injections [(try (require 'jvm.tool)
                                       (require '[std.lib :as h])
                                       (catch Throwable t (.printStackTrace t)))]}}
   :resource-paths    ["resources" "test-data" "test-code"]
   :java-source-paths ["src-java" "test-java"]
   :java-output-path  "target/classes"
-  #_#_:repl-options {:host "0.0.0.0" :port 51311}
+  :repl-options {:host "0.0.0.0"
+                 :port 10234}
   :jvm-opts
   ["-Xms2048m"
    "-Xmx2048m"
