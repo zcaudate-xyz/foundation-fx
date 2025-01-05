@@ -56,4 +56,4 @@ jobs:
           -v /var/run/docker.sock:/var/run/docker.sock 
           -v $(pwd):$(pwd)
           -w $(pwd) ghcr.io/zcaudate-xyz/infra-foundation-dev:ci
-          bash -c 'cd ../foundation-fx && lein test'
+          bash -c 'cd foundation-fx && lein test'
