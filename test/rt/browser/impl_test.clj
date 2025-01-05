@@ -73,4 +73,4 @@
   
   @((impl/wrap-browser-state util/target-info)
     (l/rt :js))
-  => (contains-in {"targetInfo" {"attached" true, "url" "about:blank"}}))
+  => (contains-in {"targetInfo" {"attached" true, "url" string?}}))

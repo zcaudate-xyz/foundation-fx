@@ -32,6 +32,7 @@
   [{:keys [lang port bench] :as rt}]
   (let [exec (or (:exec bench)
                  [*chrome*
+                  "--no-sandbox"
                   "--headless"
                   (str "--remote-debugging-port=" port)
                   "--remote-debugging-address=0.0.0.0"])]

@@ -1,7 +1,8 @@
 (ns rt.browser.spec
   (:require [std.json :as json]
             [std.lib :as h]
-            [std.string :as str])
+            [std.string :as str]
+            [std.fs :as fs])
   (:refer-clojure :exclude [get-method]))
 
 (def +path+ "assets/rt.browser")
@@ -10,22 +11,23 @@
   "downloads the chrome devtools spec"
   {:added "4.0"}
   []
+  (fs/create-directory (str "resources/" +path+))
   (h/sys:wget-bulk "https://raw.githubusercontent.com/ChromeDevTools/devtools-protocol/master/json/"
                    +path+
                    ["js_protocol.json"
                     "browser_protocol.json"]))
 
-(defonce +spec-js+
+(def +spec-js+
   (delay (json/read
           (h/sys:resource-content
            "assets/rt.browser/js_protocol.json"))))
 
-(defonce +spec-browser+
+(def +spec-browser+
   (delay (json/read
           (h/sys:resource-content
            "assets/rt.browser/browser_protocol.json"))))
 
-(defonce +spec-all+
+(def +spec-all+
   (delay (h/map-juxt [#(get % "domain")
                       #(get % "commands")]
                      (concat (get @+spec-js+ "domains")

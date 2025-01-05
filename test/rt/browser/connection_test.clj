@@ -13,11 +13,13 @@
               (let [port    (h/port:check-available 0)
                     process (h/sh {:args [impl/*chrome*
                                           "--headless"
+                                          "--no-sandbox"
                                           (str "--remote-debugging-port=" port)
                                           "--remote-debugging-address=0.0.0.0"]
                                    :wait false})
                     result  (h/future (h/sh-wait process))
-                    _ (h/wait-for-port "localhost" port)]
+                    _ (h/wait-for-port "localhost" port
+                                       {:timeout 2000})]
                 {:port port
                  :process process
                  :result result}))))
@@ -117,13 +119,14 @@
   ;; Tab1
   ;;
 
-  @(conn/send +conn+
-              "Page.navigate"
-              {:url "https://www.bing.com"}
-              3000)
+  (do (Thread/sleep 100)
+      @(conn/send +conn+
+                  "Page.navigate"
+                  {:url "https://www.bing.com"}
+                  3000))
   => (contains {"frameId" string?
                    "loaderId" string?})
-    
+  
   (do (Thread/sleep 100)
       @(conn/send (dissoc +conn+ :session-id)
                   "Target.getTargetInfo"))
@@ -136,14 +139,15 @@
   (def +conn2+
     (conn/conn-create {:port (:port (start-scaffold))
                        :attach :new}))
-  
-  @(conn/send (dissoc +conn2+ :session-id)
-              "Target.getTargetInfo")
+  (do (Thread/sleep 100)
+      @(conn/send (dissoc +conn2+ :session-id)
+                  "Target.getTargetInfo"))
   => (contains-in {"targetInfo" {"attached" true, "url" "about:blank"}})
   
-  @(conn/send +conn2+
-             "Page.navigate"
-             {:url "https://www.baidu.com"})
+  (do (Thread/sleep 100)
+      @(conn/send +conn2+
+                  "Page.navigate"
+                  {:url "https://www.baidu.com"}))
   => (contains {"frameId" string?
                 "loaderId" string?})
 

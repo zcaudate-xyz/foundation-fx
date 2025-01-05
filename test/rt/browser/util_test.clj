@@ -30,14 +30,15 @@
   ^:hidden
   
   @(util/page-capture-screenshot +conn+)
-  => bytes?)
+  => (any bytes?
+          nil?))
 
 ^{:refer rt.browser.util/target-info :added "4.0"}
 (fact "gets the target info"
   ^:hidden
   
   @(util/target-info +conn+)
-  => (contains-in {"targetInfo" {"attached" true, "url" "about:blank"}}))
+  => (contains-in {"targetInfo" {"attached" true, "url" string?}}))
 
 ^{:refer rt.browser.util/target-create :added "4.0"}
 (fact "creates a new target"

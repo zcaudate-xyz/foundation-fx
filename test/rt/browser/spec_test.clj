@@ -14,7 +14,9 @@
   => '("Accessibility"
        "Animation"
        "Audits"
+       "Autofill"
        "BackgroundService"
+       "BluetoothEmulation"
        "Browser"
        "CSS"
        "CacheStorage"
@@ -26,10 +28,14 @@
        "DOMStorage"
        "Database"
        "Debugger"
+       "DeviceAccess"
        "DeviceOrientation"
        "Emulation"
        "EventBreakpoints"
+       "Extensions"
+       "FedCm"
        "Fetch"
+       "FileSystem"
        "HeadlessExperimental"
        "HeapProfiler"
        "IO"
@@ -42,9 +48,11 @@
        "Memory"
        "Network"
        "Overlay"
+       "PWA"
        "Page"
        "Performance"
        "PerformanceTimeline"
+       "Preload"
        "Profiler"
        "Runtime"
        "Schema"
@@ -87,6 +95,7 @@
        "discardConsoleEntries"
        "enable"
        "evaluate"
+       "getExceptionDetails"
        "getHeapUsage"
        "getIsolateId"
        "getProperties"
@@ -100,11 +109,96 @@
        "setAsyncCallStackDepth"
        "setCustomObjectFormatterEnabled"
        "setMaxCallStackSizeToCapture"
-       "terminateExecution"))
+       "terminateExecution")
 
+  (spec/list-methods "Page")
+  => '("addCompilationCache"
+       "addScriptToEvaluateOnLoad"
+       "addScriptToEvaluateOnNewDocument"
+       "bringToFront"
+       "captureScreenshot"
+       "captureSnapshot"
+       "clearCompilationCache"
+       "clearDeviceMetricsOverride"
+       "clearDeviceOrientationOverride"
+       "clearGeolocationOverride"
+       "close"
+       "crash"
+       "createIsolatedWorld"
+       "deleteCookie"
+       "disable"
+       "enable"
+       "generateTestReport"
+       "getAdScriptId"
+       "getAppId"
+       "getAppManifest"
+       "getFrameTree"
+       "getInstallabilityErrors"
+       "getLayoutMetrics"
+       "getManifestIcons"
+       "getNavigationHistory"
+       "getOriginTrials"
+       "getPermissionsPolicyState"
+       "getResourceContent"
+       "getResourceTree"
+       "handleJavaScriptDialog"
+       "navigate"
+       "navigateToHistoryEntry"
+       "printToPDF"
+       "produceCompilationCache"
+       "reload"
+       "removeScriptToEvaluateOnLoad"
+       "removeScriptToEvaluateOnNewDocument"
+       "resetNavigationHistory"
+       "screencastFrameAck"
+       "searchInResource"
+       "setAdBlockingEnabled"
+       "setBypassCSP"
+       "setDeviceMetricsOverride"
+       "setDeviceOrientationOverride"
+       "setDocumentContent"
+       "setDownloadBehavior"
+       "setFontFamilies"
+       "setFontSizes"
+       "setGeolocationOverride"
+       "setInterceptFileChooserDialog"
+       "setLifecycleEventsEnabled"
+       "setPrerenderingAllowed"
+       "setRPHRegistrationMode"
+       "setSPCTransactionMode"
+       "setTouchEmulationEnabled"
+       "setWebLifecycleState"
+       "startScreencast"
+       "stopLoading"
+       "stopScreencast"
+       "waitForDebugger"))
+  
 ^{:refer rt.browser.spec/get-method :added "4.0"}
 (fact "gets the method"
   ^:hidden
+
+  (-> (spec/get-method "Page"
+                       "captureScreenshot")
+      (update "parameters"
+              (fn [parameters]
+                (mapv (fn [m]
+                        (select-keys m ["name" "optional"]))
+                      parameters))))
+  => {"returns"
+      [{"name" "data",
+        "type" "string",
+        "description"
+        "Base64-encoded image data. (Encoded as a base64 string when passed over JSON)"}],
+      "name" "captureScreenshot",
+      "parameters"
+      [{"name" "format", "optional" true}
+       {"name" "quality", "optional" true}
+       {"name" "clip", "optional" true}
+       {"name" "fromSurface", "optional" true}
+       {"name" "captureBeyondViewport", "optional" true}
+       {"name" "optimizeForSpeed", "optional" true}],
+      "description" "Capture page screenshot."}
+  
   
   (-> (spec/get-method "Runtime"
                        "evaluate")
@@ -137,7 +231,8 @@
        {"name" "disableBreaks", "optional" true}
        {"name" "replMode", "optional" true}
        {"name" "allowUnsafeEvalBlockedByCSP", "optional" true}
-       {"name" "uniqueContextId", "optional" true}],
+       {"name" "uniqueContextId", "optional" true}
+       {"name" "serializationOptions", "optional" true}],
       "description" "Evaluates expression on global object."})
 
 ^{:refer rt.browser.spec/tmpl-connection :added "4.0"}
@@ -145,24 +240,30 @@
   ^:hidden
   
   (spec/tmpl-connection '[runtime-evaluate ["Runtime" "evaluate"]])
-  => '(defn runtime-evaluate
-        [conn expression & [{:keys [allow-unsafe-eval-blocked-by-csp
-                                    await-promise
-                                    context-id
-                                    disable-breaks
-                                    generate-preview
-                                    include-command-line-api
-                                    object-group
-                                    repl-mode
-                                    return-by-value
-                                    silent
-                                    throw-on-side-effect
-                                    timeout
-                                    unique-context-id
-                                    user-gesture],
-                             :as m}
-                            timeout
-                            opts]]
+  => '(defn
+        runtime-evaluate
+        [conn
+         expression
+         &
+         [{:keys
+           [allow-unsafe-eval-blocked-by-csp
+            await-promise
+            context-id
+            disable-breaks
+            generate-preview
+            include-command-line-api
+            object-group
+            repl-mode
+            return-by-value
+            serialization-options
+            silent
+            throw-on-side-effect
+            timeout
+            unique-context-id
+            user-gesture],
+           :as m}
+          timeout
+          opts]]
         (rt.browser.connection/send
          conn
          "Runtime.evaluate"
