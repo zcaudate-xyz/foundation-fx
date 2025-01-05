@@ -34,12 +34,6 @@ jobs:
     timeout-minutes: 20
     
     steps:
-      - name: Checkout base repository
-        uses: actions/checkout@v3
-        with:
-          repository: zcaudate-xyz/foundation-base
-          path: foundation-base
-          token: ${{ secrets.GH_TOKEN }}
           
       - name: Checkout fx repository
         uses: actions/checkout@v3
@@ -62,4 +56,4 @@ jobs:
           -v /var/run/docker.sock:/var/run/docker.sock 
           -v $(pwd):$(pwd)
           -w $(pwd) ghcr.io/zcaudate-xyz/infra-foundation-dev:ci
-          bash -c 'cd foundation-base && lein install && cd ../foundation-fx && lein test'
+          bash -c 'cd ../foundation-fx && lein test'
